@@ -1,0 +1,25 @@
+{
+    "user" : {
+        "username" : "string unique Required trimmed",
+        "email": "String, Required, Unique, valid email validated with Mongoos matching validation",
+        "thoughts" : ["array of _id values refrencing thoughts model"],
+        "friends" : ["arrary of _id values refrencing  the user model (self-refrence)"],
+        "friendCount" : "int counting length of users friends"
+    },
+    "thoughts" : {
+        "username" : "String Required the user who created this thought",
+        "thoughtText" : "string Required between 1 & 280 characters",
+        "createdAt" : "Date dwefault calue to current timestamp, use a getter method to format the timestamp on query",
+        "reactions": ["array of nested documents crated with the reactionsSchema"],
+        "reactionCount" : "virtual that retrieves the length of the thoughts reactions array field"
+    },
+    "reactions" : {
+        "reactionId" : "uses Mongoose default ObjectId data type to increment random ID",
+        "reactionBody": "String Required 280 char max",
+        "username": "String Required",
+        "createdAt": "Date default value todays date, use a get method to return a formatted time stamp",
+        "schemaSettings" : "??? This will not be a model, but rather will be used as the reaction field's subdocument schema in the Thought model."
+    }
+
+   
+}
