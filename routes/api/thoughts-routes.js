@@ -13,6 +13,7 @@ router
   .get(getAllThoughts)
   .post(createThought);
 
+
 // /api/thoughts/:id
 router
   .route('/:id')

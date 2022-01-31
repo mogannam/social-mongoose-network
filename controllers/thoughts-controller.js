@@ -56,7 +56,7 @@ const ThoughtsController = {
 
   // update thought by id
   updateThought({ params, body }, res) {
-    Thoughts.create(body)
+    Thoughts
     .findOneAndUpdate({ _id: params.id }, body, { new: true })
       .then(dbThoughtsData => {
         if (!dbThoughtsData) {
