@@ -14,7 +14,7 @@ const ReactionsSchema = new Schema(
     },
     reactionBody: {
       type: String,
-      required : [true, msgThought],
+      required: [true, msgThought],
       min: [1, msgThought],
       max: 280
     },
@@ -25,7 +25,7 @@ const ReactionsSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now,
-      get: createdAtVal => dateFormat(createdAtVal)
+      get: timestamp => dateFormat(timestamp)
     }
   },
   {
@@ -43,7 +43,7 @@ const ThoughtsSchema = new Schema(
   {
     username: {
       type: String,
-      required: [true,'username is required'],
+      required: [true, 'username is required'],
     },
     thoughtText: {
       type: String,
@@ -55,7 +55,7 @@ const ThoughtsSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now,
-      get: createdAtVal => dateFormat(createdAtVal)
+      get: timestamp => dateFormat(timestamp)
     },
     // use ReactionSchema to validate data for a reaction
     // an array of reaction objects
@@ -72,7 +72,7 @@ const ThoughtsSchema = new Schema(
 
 
 
-ThoughtsSchema.virtual('reactionCount').get(function() {
+ThoughtsSchema.virtual('reactionCount').get(function () {
   return this.reactions.length;
 });
 

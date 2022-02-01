@@ -33,22 +33,20 @@ const ThoughtsController = {
   // create Thought
   createThought({ body }, res) {
     Thoughts.create(body) // create the thought
-      .then(async dbThoughtsData =>{ 
+      .then(dbThoughtsData => {
         // then add the though id to the users Schema & finally return thought data
-        await User.findOneAndUpdate( // find the correct user and only update the thoughts array of ids
-          { _id: body.userId},  // by user id in the params
-          {$push:{thoughts: dbThoughtsData._id}}, // push the new thoughts id aka dbThoughtsData._id, whats returned py posting a new thought
+        User.findOneAndUpdate( // find the correct user and only update the thoughts array of ids
+          { _id: body.userId },  // by user id in the params
+          { $push: { thoughts: dbThoughtsData._id } }, // push the new thoughts id aka dbThoughtsData._id, whats returned py posting a new thought
           { new: true })
-          .then(dbUserData => { 
+          .then(dbUserData => {
             if (!dbUserData) {
               res.status(404).json({ message: 'No User found with this id!' });
               return;
             }
-            //res.json(dbUserData); // do not return user data, continue thru and return thoughts data
+            res.json(dbThoughtsData)
           })
           .catch(err => res.json(err)); // catch an error if updating the user fails
-
-         res.json(dbThoughtsData) // return thoughts data
       })
       .catch(err => res.json(err));
 
@@ -57,7 +55,7 @@ const ThoughtsController = {
   // update thought by id
   updateThought({ params, body }, res) {
     Thoughts
-    .findOneAndUpdate({ _id: params.thoughtId }, body, { new: true })
+      .findOneAndUpdate({ _id: params.thoughtId }, body, { new: true })
       .then(dbThoughtsData => {
         if (!dbThoughtsData) {
           res.status(404).json({ message: 'No Thought found with this id!' });
@@ -87,7 +85,7 @@ const ThoughtsController = {
       })
       .catch(err => res.json(err));
   },
-  
+
   //deleteReaction from thought
   deleteReaction({ params }, res) {
 
@@ -99,7 +97,7 @@ const ThoughtsController = {
       .then(dbThoughtData => res.json(dbThoughtData))
       .catch(err => res.json(err));
   }
-  
+
 
 
 
