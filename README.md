@@ -34,7 +34,8 @@
  <ul><li><a href="https://github.com/mogannam/social-mongoose-network">Code on GitHub</a> </li>
   <li>Clone the project here: git@github.com:mogannam/social-mongoose-network.git</li></ul>
 
-(https://github.com/mogannam/mockups/blob/1a4cc6a72bc64945130832ce3fcbb4f385c0a4f5/social-mongoose-network.mp4)
+
+Download Mockup Video: (https://github.com/mogannam/mockups/blob/1a4cc6a72bc64945130832ce3fcbb4f385c0a4f5/social-mongoose-network.mp4)
 
   
 # Contributing 
