@@ -12,10 +12,10 @@ const ReactionsSchema = new Schema(
       type: Schema.Types.ObjectId,
       default: () => new Types.ObjectId()
     },
-    reactionBody: {
+    reactionBody: { // contatins text, like a reply to a comment
       type: String,
       required: [true, msgThought],
-      min: [1, msgThought],
+      min: [1, msgThought],  // set a min length, and custom error
       max: 280
     },
     username: {
@@ -26,13 +26,13 @@ const ReactionsSchema = new Schema(
       type: Date,
       default: Date.now,
       get: timestamp => dateFormat(timestamp)
-    }
-  },
+    } // get calls a function dateFormat and formats the data in the argument passed to 
+  }, // it called timestamp
   {
     toJSON: {
-      getters: true
+      getters: true  // allows the use of get in createdAt
     },
-    id: false
+    id: false // turns of the auto generation of ids b/c we generate _ids
   }
 );
 

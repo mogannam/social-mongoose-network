@@ -2,9 +2,10 @@ const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 const msgValidEmail = 'Please fill a valid email address';
 
+// a helper function that validates valid emails
 var validateEmail = function(email) {
   var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-  return re.test(email)
+  return re.test(email) // returns true/false, if the email string passes a regex test
 };
 
 const UserSchema = new Schema(

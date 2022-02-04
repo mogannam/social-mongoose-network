@@ -13,9 +13,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public')); 
 
 
-const dbName = 'social-mongoose-network'
+const dbName = 'social-mongoose-network' // my database name ToDo: move to env file
+
+// setup mongoose DB
 mongoose.connect(process.env.MONGODB_URI || `mongodb://localhost:27017/${dbName}`, {
-  useFindAndModify: false, // older versions of mongoose do not have this function
+  useFindAndModify: false, // older versions of mongoose do not have this function 
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
