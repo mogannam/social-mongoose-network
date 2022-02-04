@@ -34,12 +34,7 @@
  <ul><li><a href="https://github.com/mogannam/social-mongoose-network">Code on GitHub</a> </li>
   <li>Clone the project here: git@github.com:mogannam/social-mongoose-network.git</li></ul>
 
- 
-
- <video width="320" height="240" controls>
-  <source src="https://github.com/mogannam/mockups/blob/1a4cc6a72bc64945130832ce3fcbb4f385c0a4f5/social-mongoose-network.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
+ ![](https://github.com/mogannam/mockups/blob/1a4cc6a72bc64945130832ce3fcbb4f385c0a4f5/social-mongoose-network.mp4)
   
 # Contributing 
  social-mongoose-network has adopted the [Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg) code of conduct, for contributions. 
